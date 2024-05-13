@@ -13,6 +13,10 @@ public class FictionBook extends Book {
         this.genre = genre;
     }
 
+    public String getGenre() {
+        return this.genre;
+    }
+
     public String toString() {
         String str = "\nFICTION BOOK";
         str += super.toString();

@@ -13,6 +13,10 @@ public class ChildrensBook extends Book {
         this.recommendedAge = recommendedAge;
     }
 
+    public int getRecommendedAge() {
+        return this.recommendedAge;
+    }
+
     public String toString() {
         String str = "\nCHILDREN'S BOOK";
         str += super.toString();

@@ -1,0 +1,3 @@
+The Lorax;75;1972;Dr. Seuss;Fiction-Fiction;
+Hippos Go Berserk;15;1977;Sandra Boynton;Children's-3;
+The Outsiders;192;1967;S.E. Hinton;Audio-282;

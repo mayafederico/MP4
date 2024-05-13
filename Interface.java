@@ -65,12 +65,24 @@ public class Interface {
             }
         }   // end of while loop, all books added
 
-        fileStream.close();
-        scnr.close();
+        try {
+            fileStream.close();
+            scnr.close();
+        }
+
+        catch (IOException fe) {
+            System.out.println("An error occured.");
+        }
 
 
         System.out.println("Library Catalog:");
         System.out.println(myLibrary.toString());
+
+        System.out.println();
+        ArrayList<Book> libraryCatalog = myLibrary.getBooks();
+        FictionBook theLorax = (FictionBook) libraryCatalog.get(0);
+        System.out.println("Book 1:" + theLorax.toString());
+        System.out.println("Formatting: " + myLibrary.formatBookInfo(theLorax));
         
     }
 }

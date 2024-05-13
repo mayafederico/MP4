@@ -11,6 +11,10 @@ public class AudioBook extends Book {
         this.minutes = minutes;
     }
 
+    public int getMinutes() {
+        return this.minutes;
+    }
+
     public String toString() {
         String str = "\nAUDIOBOOK";
         str += super.toString();
