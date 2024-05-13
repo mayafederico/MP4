@@ -1,24 +1,21 @@
-public class Book {
+public abstract class Book {
     private String title;
     private int numPages;
     private int year;
     private String authorName;
-    private double cost;
 
     public Book() {
         this.title = "Unknown";
         this.numPages = 0;
         this.year = 0;
-        this.author = "Unknown";
-        this.cost = 0.00;
+        this.authorName = "Unknown";
     }
 
-    public Book (String title, int numPages, int year, String authorName, double cost) {
+    public Book (String title, int numPages, int year, String authorName) {
         this.title = title;
         this.numPages = numPages;
         this.year = year;
-        this.author = author;
-        this.cost = cost;
+        this.authorName = authorName;
     }
 
     // accessor methods
@@ -35,7 +32,7 @@ public class Book {
     }
 
     public String getAuthorName() {
-        return this.author;
+        return this.authorName;
     }
 
     // mutator methods
@@ -55,12 +52,8 @@ public class Book {
         this.authorName = authorName;
     }
 
-    public void setCost(double cost) {
-        this.cost = cost;
-    }
-
     // toString()
     public String toString() {
-        return "Title: " + this.title + "\nNumber of Pages: " + this.numPages + "\nYear: " + this.year + "\nAuthor: " + this.authorName + "\nCost: " + this.cost;
+        return "\nTitle: " + this.title + "\nNumber of Pages: " + this.numPages + "\nYear: " + this.year + "\nAuthor: " + this.authorName;
     }
 }
