@@ -12,9 +12,14 @@ public class Library {
         return this.books;
     }
 
-    public Book checkOut(Book bookCheckedOut) {
-        this.books.remove(bookCheckedOut);
-        return bookCheckedOut;
+    // gets book at given index
+    public Book getBook(int index) {
+        return this.books.get(index);
+    }
+
+    public void checkOut(int index) {
+        this.books.get(index).makeUnavailable();
+        System.out.println("Book checked out!");
     }
 
     public void addBook(Book book) {
@@ -26,8 +31,9 @@ public class Library {
         String pages = String.valueOf(book.getNumPages());
         String year = String.valueOf(book.getYear());
         String author = book.getAuthorName();
+        String availability = String.valueOf(book.getAvailability());
 
-        String str = title + ";" + pages + ";" + year + ";" + author + ";";
+        String str = title + ";" + pages + ";" + year + ";" + author + ";" + availability + ";";
 
         if (book instanceof FictionBook) {
             FictionBook fiction = (FictionBook) book;
@@ -52,15 +58,38 @@ public class Library {
         return str;
     }
 
-    public boolean searchByTitle(String title) {
-        for (int i = 0; i < this.books.size(); i++) {
-            Book current = this.books.get(i);
+    public int searchByTitle(String title) {
+        int index = 0;
+        for (index = 0; index < this.books.size(); index++) {
+            Book current = this.books.get(index);
             if (current.getTitle().equals(title)) {
-                return true;
+                return index;
             }
         }
 
-        return false;
+        return -1;
+    }
+
+    // sorts books alphabetically by title
+    public ArrayList<Book> sortByTitle(ArrayList<Book> bookList) {
+        ArrayList<Book> sortedList = new ArrayList<Book>();
+        for (Book book : bookList) {
+            sortedList.add(book);
+        }
+
+        for (int i = 0; i < sortedList.size() - 1; i++) {
+            Book currentBook = sortedList.get(i);
+            Book nextBook = sortedList.get(i+1);
+            int compare = currentBook.compareTo(nextBook);
+
+            if (compare > 0) {
+                sortedList.remove(currentBook); // removes book
+                sortedList.add(currentBook); // adds book to end
+                i--;
+            }
+        }
+
+        return sortedList;
     }
 
     public String toString() {
